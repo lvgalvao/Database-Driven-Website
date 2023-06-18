@@ -16,9 +16,7 @@
             display: block;
             margin: 0 auto;
             width: 200px;
-            /* Adjust the width and height as needed */
             height: 200px;
-            /* Make sure width and height are the same for a perfect circle */
             border-radius: 50%;
             object-fit: cover;
         }
@@ -27,41 +25,27 @@
 
 <body>
     <div class="container">
-        <h1 class="text-center">Luciano Filho</h1>
-        <img src="{{ url_for('static', filename='me.jpg') }}" alt="me" class="circular-image" />
-        <h2>About me</h1>
-            <p>
-                I'm an Analytics Engineer specializing in developing data-driven solutions to increase online sales and
-                provide
-                actionable insights. My primary tools are Python and SQL, which I use to process and analyze large
-                datasets
-                efficiently.
-            </p>
-            <img class="img-fluid" id="banner" src="{{ url_for('static', filename='banner.jpg') }}"
-                alt="Responsive image" />
-            <div class="project">
-                <h2 class="project-title">First project 1</h2>
-                <p class="project-description">Description of Project 1.</p>
-                <a class="project-link" href="project1.html">View Project</a>
-            </div>
-
-            <div class="project">
-                <h2 class="project-title">Project 2</h2>
-                <p class="project-description">Description of Project 2.</p>
-                <a class="project-link" href="project2.html">View Project</a>
-            </div>
-
-            <div class="project">
-                <h2 class="project-title">Project 3</h2>
-                <p class="project-description">Description of Project 3.</p>
-                <a class="project-link" href="project3.html">View Project</a>
-            </div>
-            <div class="text-center">
-                <button class="btn btn-primary btn-lg">
-                    Contact Us
-                </button>
-                <p class="contact"> Copyright 2023, Luciano</p>
-            </div>
+        <h1 class="text-center mt-2 mb-4">Luciano Filho</h1>
+        <img class="img-fluid" id="banner" src="{{ url_for('static', filename='banner.jpg') }}"
+            alt="Responsive image" />
+        <h2 class="text-center mt-2 mb-4">{{company_name}} Carrers</h2>
+        <p class="lead">
+            I'm an Analytics Engineer specializing in developing data-driven solutions to increase online sales and
+            provide
+            actionable insights. My primary tools are Python and SQL, which I use to process and analyze large datasets
+            efficiently.
+        </p>
+        <div>
+            {% for job in jobs%}
+            {% include 'jobitem.html' %}
+            {% endfor %}
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary btn-lg">
+                Contact Us
+            </button>
+            <p class="contact">© 2023, Luciano</p>
+        </div>
     </div>
 </body>
 
