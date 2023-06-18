@@ -1,0 +1,7 @@
+site_name: Database-Driven Website Documentation
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - Flask: flask.md
+  - MySQL: mysql.md

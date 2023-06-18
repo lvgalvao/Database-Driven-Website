@@ -1,7 +1,10 @@
 Database-Driven Website
 =======================
 
-This project aims to provide a comprehensive guide on developing dynamic database-driven web applications using Python, Flask, and MySQL. The course is divided into two parts, covering the development and deployment of a Flask-based site in part one, and connecting the Flask application to a cloud-based MySQL database and deploying a production-ready database-driven web application in part two.
+This project aims to provide a comprehensive guide on developing dynamic database-driven web applications using Python, Flask, and MySQL. It serves as a showcase that is divided into two parts:
+
+1. Development and deployment of a Flask-based site
+2. Connecting the Flask application to a cloud-based MySQL database and deploying a production-ready database-driven web application.
 
 Installation
 ------------
