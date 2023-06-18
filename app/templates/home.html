@@ -3,12 +3,31 @@
 
 <head>
     <title>About me</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        #banner {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+        }
+
+        .circular-image {
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+            /* Adjust the width and height as needed */
+            height: 200px;
+            /* Make sure width and height are the same for a perfect circle */
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="container">
-        <h1>Luciano Filho</h1>
+    <div class="container">
+        <h1 class="text-center">Luciano Filho</h1>
         <img src="{{ url_for('static', filename='me.jpg') }}" alt="me" class="circular-image" />
         <h2>About me</h1>
             <p>
@@ -18,7 +37,8 @@
                 datasets
                 efficiently.
             </p>
-            <img id="banner" src="{{ url_for('static', filename='banner.jpg') }}" alt="banner" />
+            <img class="img-fluid" id="banner" src="{{ url_for('static', filename='banner.jpg') }}"
+                alt="Responsive image" />
             <div class="project">
                 <h2 class="project-title">First project 1</h2>
                 <p class="project-description">Description of Project 1.</p>
@@ -36,7 +56,12 @@
                 <p class="project-description">Description of Project 3.</p>
                 <a class="project-link" href="project3.html">View Project</a>
             </div>
-            <p class="contact"> Contact me</p>
+            <div class="text-center">
+                <button class="btn btn-primary btn-lg">
+                    Contact Us
+                </button>
+                <p class="contact"> Copyright 2023, Luciano</p>
+            </div>
     </div>
 </body>
 
