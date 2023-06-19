@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template
+from flask import render_template, jsonify
 
 JOBS = [
     {
@@ -37,3 +37,13 @@ def home():
                            jobs=JOBS,
                            company_name='JobsNET')
 
+@app.route('/api/jobs')
+def list_jobs():
+    return jsonify(JOBS)
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+if __name__ == '__main__':
+    app.run()

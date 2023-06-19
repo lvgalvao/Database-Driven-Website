@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>About me</title>
+    <title>Job Search</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <style>
@@ -20,6 +20,39 @@
             border-radius: 50%;
             object-fit: cover;
         }
+
+        .job-container {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+        }
+
+        .job-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .job-description {
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+
+        .job-location {
+            margin-bottom: 10px;
+        }
+
+        .job-salary {
+            margin-bottom: 10px;
+        }
+
+        .apply-button {
+            margin-top: 10px;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+        }
     </style>
 </head>
 
@@ -28,25 +61,52 @@
         <h1 class="text-center mt-2 mb-4">Luciano Filho</h1>
         <img class="img-fluid" id="banner" src="{{ url_for('static', filename='banner.jpg') }}"
             alt="Responsive image" />
-        <h2 class="text-center mt-2 mb-4">{{company_name}} Carrers</h2>
-        <p class="lead">
-            I'm an Analytics Engineer specializing in developing data-driven solutions to increase online sales and
-            provide
-            actionable insights. My primary tools are Python and SQL, which I use to process and analyze large datasets
-            efficiently.
-        </p>
-        <div>
-            {% for job in jobs%}
+        <h2 class="text-center mt-2 mb-4">{{ company_name }} Careers</h2>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form class="mb-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="searchInput" placeholder="Search for jobs">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="jobListings">
+            {% for job in jobs %}
             {% include 'jobitem.html' %}
             {% endfor %}
         </div>
-        <div class="text-center">
-            <button class="btn btn-primary btn-lg">
-                Contact Us
-            </button>
+        <div class="text-center contact-info">
+            <button class="btn btn-primary btn-lg" onclick="location.href='/contact'">Contact Us</button>
             <p class="contact">© 2023, Luciano</p>
         </div>
     </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const jobListings = document.getElementById('jobListings').children;
+
+        searchInput.addEventListener('input', function () {
+            const searchQuery = this.value.toLowerCase();
+
+            for (let i = 0; i < jobListings.length; i++) {
+                const jobTitle = jobListings[i].querySelector('.job-title').textContent.toLowerCase();
+                const jobDescription = jobListings[i].querySelector('.job-description').textContent.toLowerCase();
+                const jobLocation = jobListings[i].querySelector('.job-location').textContent.toLowerCase();
+
+                if (
+                    jobTitle.includes(searchQuery) ||
+                    jobDescription.includes(searchQuery) ||
+                    jobLocation.includes(searchQuery)
+                ) {
+                    jobListings[i].style.display = 'block';
+                } else {
+                    jobListings[i].style.display = 'none';
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
