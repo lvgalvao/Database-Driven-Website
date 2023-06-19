@@ -10,6 +10,7 @@ packages = [{include = "database_driven_website"}]
 python = "^3.11"
 flask = "^2.3.2"
 mkdocs-material = "^9.1.16"
+gunicorn = "^20.1.0"
 
 
 [tool.poetry.group.dev.dependencies]
