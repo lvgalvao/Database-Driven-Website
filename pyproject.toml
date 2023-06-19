@@ -13,17 +13,17 @@ mkdocs-material = "^9.1.16"
 gunicorn = "^20.1.0"
 
 
-[tool.poetry.group.dev.dependencies]
-ipdb = "^0.13.13"
-pytest = "^7.3.2"
-pytest-cov = "^4.1.0"
-blue = "^0.9.1"
-isort = "^5.12.0"
-taskipy = "^1.11.0"
+# [tool.poetry.group.dev.dependencies]
+# ipdb = "^0.13.13"
+# pytest = "^7.3.2"
+# pytest-cov = "^4.1.0"
+# blue = "^0.9.1"
+# isort = "^5.12.0"
+# taskipy = "^1.11.0"
 
 
-[tool.poetry.group.doc.dependencies]
-mkdocstrings-python = "^1.1.2"
+# [tool.poetry.group.doc.dependencies]
+# mkdocstrings-python = "^1.1.2"
 
 [build-system]
 requires = ["poetry-core"]
