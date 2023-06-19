@@ -26,7 +26,7 @@ gunicorn = "^20.1.0"
 # mkdocstrings-python = "^1.1.2"
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core=1.4.1"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.taskipy.tasks]
